@@ -7,6 +7,8 @@ export const pt = {
     testimonials: "Depoimentos",
     faq: "FAQ",
     cta: "Participar",
+    openMenu: "Abrir menu",
+    closeMenu: "Fechar menu",
   },
   hero: {
     title1: "Mentoria real,",
@@ -173,6 +175,8 @@ export const en = {
     testimonials: "Testimonials",
     faq: "FAQ",
     cta: "Join Us",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
   },
   hero: {
     title1: "Real mentorship,",
