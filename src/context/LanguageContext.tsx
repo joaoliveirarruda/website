@@ -21,6 +21,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // SSR-safe hydration: server renders default, client syncs from localStorage/navigator on mount.
+    /* eslint-disable react-hooks/set-state-in-effect */
     const savedLang = localStorage.getItem("momento-lang") as Language;
     if (savedLang && (savedLang === "pt" || savedLang === "en")) {
       setLanguage(savedLang);
@@ -35,6 +37,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
 
     setMounted(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   const handleSetLanguage = (lang: Language) => {
