@@ -19,9 +19,11 @@ export const pt = {
   },
   about: {
     badge: "Comunidade Momento",
-    title1: "Construindo o",
-    title2: "futuro juntos.",
-    description: "Profissionais e ex-alunos compartilham experiências, fortalecendo uma comunidade que transforma carreiras em tecnologia.",
+    title1: "Sobre o momento",
+    title2: "",
+    p1: "O Momento é um movimento que conecta estudantes universitários ao mercado de trabalho, preparando-os para carreiras de impacto.",
+    p2: "Ex-alunos e profissionais comprometidos compartilham suas experiências, fortalecendo comunidades que colaboram com a educação e o futuro do Brasil como protagonista em tecnologia.",
+    p3: "O sucesso do Momento é medido pela prosperidade de novas empresas e profissionais que cresceram através desses relacionamentos.",
     link: "Entenda nosso impacto",
     stat1Number: "+250",
     stat1Label: "Mentorias realizadas",
@@ -39,7 +41,7 @@ export const pt = {
     cards: [
       {
         title: "Mentorias",
-        desc: "Receba dicas e conselhos de pessoas experientes que atingiram seus objetivos e podem te auxiliar a alcançar os seus através de ciclos 1-a-1.",
+        desc: "Explore uma comunidade de especialistas que já trilharam o caminho para o sucesso. Receba dicas e conselhos de pessoas experientes que atingiram seus objetivos e podem te auxiliar a alcançar os seus.",
       },
       {
         title: "Eventos",
@@ -187,9 +189,11 @@ export const en = {
   },
   about: {
     badge: "Momento Community",
-    title1: "Building the",
-    title2: "future together.",
-    description: "Professionals and alumni share experiences, strengthening a community that transforms careers in technology.",
+    title1: "About momento",
+    title2: "",
+    p1: "Momento is a movement that connects university students to the job market, preparing them for impactful careers.",
+    p2: "Committed alumni and professionals share their experiences, strengthening communities that collaborate with education and Brazil's future as a tech protagonist.",
+    p3: "Momento's success is measured by the prosperity of new companies and professionals who grew through these relationships.",
     link: "Understand our impact",
     stat1Number: "+250",
     stat1Label: "Completed mentorships",
@@ -207,7 +211,7 @@ export const en = {
     cards: [
       {
         title: "Mentorship",
-        desc: "Get tips and advice from experienced people who have reached their goals and can help you achieve yours through 1-on-1 cycles.",
+        desc: "Explore a community of experts who have already paved the way to success. Receive tips and advice from experienced people who have achieved their goals and can help you achieve yours.",
       },
       {
         title: "Events",
