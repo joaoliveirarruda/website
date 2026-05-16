@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr] gap-16">
             {/* Left */}
             <div>
-              <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto rounded mb-5" />
+              <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto mb-5" />
               <p className="text-neutral-500 max-w-sm leading-relaxed text-[15px]">
                 {t.footer.desc}
               </p>

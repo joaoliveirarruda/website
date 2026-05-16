@@ -10,7 +10,7 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t, language, setLanguage, registrationOpen } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
@@ -49,11 +49,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top bar */}
-      <div className="h-[54px] bg-black text-white text-sm flex items-center justify-center font-medium px-4 text-center">
-        {registrationOpen ? t.navbar.topbarOpen : t.navbar.topbar}
-      </div>
-
       {/* Navbar */}
       <motion.header
         initial={{ backgroundColor: "rgba(255,255,255,0)", borderBottomColor: "rgba(255,255,255,0)" }}
@@ -64,11 +59,11 @@ export default function Navbar() {
         }}
         style={{ WebkitBackdropFilter: isScrolled || isMenuOpen ? "blur(12px)" : "blur(0px)" }}
         transition={{ duration: 0.3 }}
-        className={`fixed inset-x-0 h-[72px] z-[1000] px-[5vw] flex items-center border-b border-transparent transition-all duration-300 ${isScrolled ? "top-0" : "top-[54px]"}`}
+        className={`fixed inset-x-0 h-[72px] z-[1000] px-[5vw] flex items-center border-b border-transparent transition-all duration-300 top-0`}
       >
         {/* Desktop layout */}
         <div className="hidden lg:grid grid-cols-[200px_1fr_200px] gap-4 items-center max-w-[1440px] mx-auto w-full">
-          <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto rounded shadow-lg" />
+          <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto" />
 
           <nav className="flex justify-center gap-6 text-base font-medium">
             {navLinks.map((link) => (
@@ -84,13 +79,13 @@ export default function Navbar() {
 
           <div className="justify-self-end flex items-center gap-6">
             <LangToggle isScrolled={isScrolled} language={language} setLanguage={setLanguage} />
-            <CtaButton isScrolled={isScrolled} registrationOpen={registrationOpen} href={t.links.mentee} label={t.navbar.cta} />
+            <CtaButton isScrolled={isScrolled} href={t.links.mentee} label={t.navbar.cta} />
           </div>
         </div>
 
         {/* Mobile layout */}
         <div className="flex lg:hidden items-center justify-between w-full">
-          <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-12 w-auto rounded shadow-lg" />
+          <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-12 w-auto" />
 
           <button
             type="button"
@@ -144,9 +139,7 @@ export default function Navbar() {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               style={{ WebkitBackdropFilter: "blur(12px)", backdropFilter: "blur(12px)" }}
-              className={`fixed inset-x-0 z-[999] overflow-hidden bg-white/95 shadow-lg lg:hidden ${
-                isScrolled ? "top-[72px]" : "top-[126px]"
-              }`}
+              className={`fixed inset-x-0 z-[999] overflow-hidden bg-white/95 shadow-lg lg:hidden top-[72px]`}
             >
               <nav className="flex flex-col px-[5vw] py-4">
                 {navLinks.map((link) => (
@@ -173,7 +166,6 @@ export default function Navbar() {
 
                 <CtaButton
                   isScrolled
-                  registrationOpen={registrationOpen}
                   href={t.links.mentee}
                   label={t.navbar.cta}
                   fullWidth
@@ -236,14 +228,12 @@ function LangToggle({
 
 function CtaButton({
   isScrolled,
-  registrationOpen,
   href,
   label,
   fullWidth = false,
   onClick,
 }: {
   isScrolled: boolean;
-  registrationOpen: boolean;
   href: string;
   label: string;
   fullWidth?: boolean;
@@ -252,18 +242,6 @@ function CtaButton({
   const base = `inline-flex justify-center border rounded-full px-6 py-3 text-sm font-medium whitespace-nowrap min-w-[140px] ${
     fullWidth ? "w-full" : ""
   }`;
-
-  if (!registrationOpen) {
-    return (
-      <span
-        className={`${base} cursor-not-allowed opacity-50 ${
-          isScrolled ? "bg-momento-dark/50 text-white/50 border-momento-dark/50" : "bg-white/20 text-white/50 border-white/20"
-        }`}
-      >
-        {label}
-      </span>
-    );
-  }
 
   return (
     <Link
