@@ -13,13 +13,13 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-momento-lightest py-[128px] px-[5vw]" id="faq">
+    <section className="bg-momento-lightest px-[5vw] pt-20 pb-24" id="faq">
       <div className="max-w-[1024px] mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-base mb-4 text-neutral-600 font-medium tracking-wide uppercase"
+          className="text-center text-base mb-6 text-neutral-600 font-medium tracking-wide uppercase"
         >
           {t.faq.badge}
         </motion.p>
@@ -29,7 +29,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[64px] leading-none tracking-[-0.04em] mb-16"
+          className="text-center font-display font-medium text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mb-16"
         >
           {t.faq.title}
         </motion.h2>

@@ -65,7 +65,7 @@ export default function Navbar() {
         <div className="hidden lg:grid grid-cols-[200px_1fr_200px] gap-4 items-center max-w-[1440px] mx-auto w-full">
           <Image src="/assets/logo-fig.png" alt="Momento" width={64} height={64} className="h-16 w-auto" />
 
-          <nav className="flex justify-center gap-6 text-base font-medium">
+          <nav className="flex justify-center gap-12 text-base font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

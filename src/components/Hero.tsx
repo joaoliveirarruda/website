@@ -9,7 +9,8 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen text-white bg-cover bg-center flex flex-col" style={{ backgroundImage: "url('/assets/hero-fig.png')" }}>
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
-      <div className="relative max-w-[1440px] mx-auto px-[5vw] pt-44 pb-24 flex-1 flex flex-col justify-end w-full">
+      <div className="relative px-[5vw] pt-44 pb-24 flex-1 flex flex-col w-full">
+        <div className="max-w-[1440px] mx-auto w-full flex-1 flex flex-col justify-end">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,6 +42,7 @@ export default function Hero() {
             {t.hero.btnSecondary}
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   );
