@@ -29,7 +29,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mb-16"
+          className="text-center font-display font-medium text-[36px] md:text-[44px] lg:text-[56px] leading-none tracking-[-0.04em] mb-12 md:mb-16"
         >
           {t.faq.title}
         </motion.h2>
@@ -50,7 +50,7 @@ export default function FAQ() {
                   onClick={() => toggle(idx)}
                   className="w-full flex justify-between items-center p-6 text-left cursor-pointer"
                 >
-                  <span className="font-display text-2xl font-medium pr-4">{item.q}</span>
+                  <span className="font-display text-xl md:text-2xl font-medium pr-4">{item.q}</span>
                   <motion.span
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.2 }}

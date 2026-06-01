@@ -25,7 +25,7 @@ export default function Testimonial() {
   const prev = () => setActive((prev) => (prev - 1 + items.length) % items.length);
 
   return (
-    <section className="bg-gradient-to-b from-momento-off-white to-momento-cream min-h-screen h-screen flex flex-col justify-start px-[5vw] pt-20 pb-8" id="depoimentos">
+    <section className="bg-gradient-to-b from-momento-off-white to-momento-cream min-h-dvh lg:h-screen flex flex-col justify-start px-[5vw] pt-24 pb-12 lg:pt-20 lg:pb-8" id="depoimentos">
       <div className="max-w-[1024px] mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export default function Testimonial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mb-16"
+          className="text-center font-display font-medium text-[36px] md:text-[44px] lg:text-[56px] leading-none tracking-[-0.04em] mb-12 md:mb-16"
         >
           {t.testimonials.title1}<br/>{t.testimonials.title2}
         </motion.h2>
@@ -53,7 +53,7 @@ export default function Testimonial() {
           transition={{ duration: 0.5 }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
-          className="relative bg-white rounded-[24px] py-12 px-20 lg:px-24 shadow-sm border border-black/5 flex flex-col md:flex-row gap-8 items-center md:h-[480px]"
+          className="relative bg-white rounded-[24px] py-8 px-6 md:py-12 md:px-12 lg:px-24 shadow-sm border border-black/5 flex flex-col md:flex-row gap-8 items-center md:h-[480px]"
         >
         <button onClick={prev} className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-black/10 bg-white hover:bg-black/5 transition-colors z-10" aria-label="Anterior">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
@@ -90,7 +90,7 @@ export default function Testimonial() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-display text-[22px] lg:text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-black mb-6">
+                <h3 className="font-display text-[18px] md:text-[22px] lg:text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-black mb-6">
                   {item.quote}
                 </h3>
                 <div>
