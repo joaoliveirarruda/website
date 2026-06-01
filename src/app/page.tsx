@@ -7,7 +7,6 @@ import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Universities from "@/components/Universities";
 import Footer from "@/components/Footer";
-import Tweaks from "@/components/Tweaks";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <FAQ />
       <Universities />
       <Footer />
-      <Tweaks />
     </main>
   );
 }

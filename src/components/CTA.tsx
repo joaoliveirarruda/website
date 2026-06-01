@@ -30,15 +30,15 @@ export default function CTA() {
   const event = events[active];
 
   return (
-    <section className="bg-white py-[144px] px-[5vw]">
+    <section className="bg-white px-[5vw] pt-20 pb-24">
       <div className="max-w-[1440px] mx-auto">
-        <p className="text-sm text-neutral-500 font-medium tracking-wide uppercase mb-4">
+        <p className="text-base text-neutral-500 font-medium tracking-wide uppercase mb-6">
           {t.events.badge}
         </p>
-        <h2 className="font-display font-medium text-[clamp(40px,6vw,64px)] leading-none tracking-[-0.04em] mb-4">
+        <h2 className="font-display font-medium text-[clamp(40px,6vw,64px)] leading-none tracking-[-0.04em] mb-6">
           {t.events.title}
         </h2>
-        <p className="text-xl text-neutral-500 max-w-lg mb-10">
+        <p className="text-xl text-neutral-500 max-w-lg mb-16">
           {t.events.subtitle}
         </p>
 

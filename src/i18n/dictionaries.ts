@@ -130,10 +130,10 @@ export const pt = {
   universities: {
     title: "Onde o Momento já chegou",
     items: [
-      { name: "UFPB", logo: "/assets/ufpb.png" },
-      { name: "UFCG", logo: "/assets/ufcg.png" },
-      { name: "UEPB", logo: "/assets/uepb.png" },
-      { name: "UFG", logo: "/assets/ufg.png" },
+      { name: "UFPB", logo: "/assets/ufpb.png", url: "https://www.ufpb.br" },
+      { name: "UFCG", logo: "/assets/ufcg.png", url: "https://www.ufcg.edu.br" },
+      { name: "UEPB", logo: "/assets/uepb.png", url: "https://www.uepb.edu.br" },
+      { name: "UFG", logo: "/assets/ufg.png", url: "https://www.ufg.br" },
     ],
   },
   links: {
@@ -300,10 +300,10 @@ export const en = {
   universities: {
     title: "Where Momento has reached",
     items: [
-      { name: "UFPB", logo: "/assets/ufpb.png" },
-      { name: "UFCG", logo: "/assets/ufcg.png" },
-      { name: "UEPB", logo: "/assets/uepb.png" },
-      { name: "UFG", logo: "/assets/ufg.png" },
+      { name: "UFPB", logo: "/assets/ufpb.png", url: "https://www.ufpb.br" },
+      { name: "UFCG", logo: "/assets/ufcg.png", url: "https://www.ufcg.edu.br" },
+      { name: "UEPB", logo: "/assets/uepb.png", url: "https://www.uepb.edu.br" },
+      { name: "UFG", logo: "/assets/ufg.png", url: "https://www.ufg.br" },
     ],
   },
   links: {

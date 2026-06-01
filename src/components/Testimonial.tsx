@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
@@ -8,16 +8,30 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Testimonial() {
   const { t } = useLanguage();
   const [active, setActive] = useState(0);
-  const item = t.testimonials.items[active];
+  const [paused, setPaused] = useState(false);
+  
+  const items = t.testimonials.items;
+  const item = items[active];
+
+  useEffect(() => {
+    if (paused) return;
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % items.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [paused, items.length]);
+
+  const next = () => setActive((prev) => (prev + 1) % items.length);
+  const prev = () => setActive((prev) => (prev - 1 + items.length) % items.length);
 
   return (
-    <section className="bg-gradient-to-b from-momento-off-white to-momento-cream py-[128px] px-[5vw]" id="depoimentos">
-      <div className="max-w-[1024px] mx-auto">
+    <section className="bg-gradient-to-b from-momento-off-white to-momento-cream min-h-screen h-screen flex flex-col justify-start px-[5vw] pt-20 pb-8" id="depoimentos">
+      <div className="max-w-[1024px] mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-base mb-4 text-neutral-600 font-medium tracking-wide uppercase"
+          className="text-center text-base mb-6 text-neutral-600 font-medium tracking-wide uppercase"
         >
           {t.testimonials.badge}
         </motion.p>
@@ -27,7 +41,7 @@ export default function Testimonial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[64px] leading-none tracking-[-0.04em] mb-16"
+          className="text-center font-display font-medium text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mb-16"
         >
           {t.testimonials.title1}<br/>{t.testimonials.title2}
         </motion.h2>
@@ -37,9 +51,17 @@ export default function Testimonial() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-white rounded-[24px] p-12 shadow-sm border border-black/5 flex flex-col md:flex-row gap-12 items-center"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          className="relative bg-white rounded-[24px] py-12 px-20 lg:px-24 shadow-sm border border-black/5 flex flex-col md:flex-row gap-8 items-center md:h-[480px]"
         >
-          <div className="w-full md:w-[360px] h-[400px] relative rounded-2xl overflow-hidden shadow-inner shrink-0">
+        <button onClick={prev} className="hidden md:flex absolute left-4 lg:left-6 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-black/10 bg-white hover:bg-black/5 transition-colors z-10" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button onClick={next} className="hidden md:flex absolute right-4 lg:right-6 top-1/2 -translate-y-1/2 w-12 h-12 items-center justify-center rounded-full border border-black/10 bg-white hover:bg-black/5 transition-colors z-10" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+          <div className="w-full md:w-[320px] h-[280px] md:h-[400px] relative rounded-2xl overflow-hidden shadow-inner shrink-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -59,7 +81,7 @@ export default function Testimonial() {
             </AnimatePresence>
           </div>
           <div className="flex-1 flex flex-col justify-center">
-            <span className="text-momento-accent font-display text-8xl leading-[0.5] mb-6 block">&ldquo;</span>
+            <span className="text-momento-accent font-display text-6xl leading-[0.5] mb-4 block">&ldquo;</span>
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -68,7 +90,7 @@ export default function Testimonial() {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="font-display text-[32px] font-medium leading-[1.2] tracking-[-0.02em] text-black mb-8">
+                <h3 className="font-display text-[22px] lg:text-[26px] font-medium leading-[1.25] tracking-[-0.02em] text-black mb-6">
                   {item.quote}
                 </h3>
                 <div>
@@ -78,17 +100,28 @@ export default function Testimonial() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="flex gap-2 mt-8">
-              {t.testimonials.items.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActive(i)}
-                  className={`w-3 h-3 rounded-full transition-all ${i === active ? "bg-momento-dark scale-110" : "bg-black/15 hover:bg-black/30"}`}
-                />
-              ))}
+            <div className="flex items-center justify-center mt-6">
+              <div className="flex gap-2">
+                {items.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={`w-3 h-3 rounded-full transition-all ${i === active ? "bg-momento-dark scale-110" : "bg-black/15 hover:bg-black/30"}`}
+                    aria-label={`Ir para depoimento ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </motion.article>
+        <div className="md:hidden flex justify-center gap-2 mt-4">
+          <button onClick={prev} className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 bg-white hover:bg-black/5 transition-colors" aria-label="Anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button onClick={next} className="w-10 h-10 flex items-center justify-center rounded-full border border-black/10 bg-white hover:bg-black/5 transition-colors" aria-label="Próximo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
   );

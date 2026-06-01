@@ -5,11 +5,12 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
-  const { t, registrationOpen } = useLanguage();
+  const { t } = useLanguage();
   return (
     <section className="relative min-h-screen text-white bg-cover bg-center flex flex-col" style={{ backgroundImage: "url('/assets/hero-fig.png')" }}>
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
-      <div className="relative max-w-[1440px] mx-auto px-[5vw] pt-44 pb-24 flex-1 flex flex-col justify-end w-full">
+      <div className="relative px-[5vw] pt-44 pb-24 flex-1 flex flex-col w-full">
+        <div className="max-w-[1440px] mx-auto w-full flex-1 flex flex-col justify-end">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,19 +35,14 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
           className="mt-10 flex gap-4"
         >
-          {registrationOpen ? (
-            <Link href={t.links.mentee} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black border border-white rounded-full px-8 py-4 text-lg font-medium hover:bg-transparent hover:text-white transition-all shadow-sm hover:-translate-y-1">
-              {t.hero.btnPrimary}
-            </Link>
-          ) : (
-            <span className="inline-block bg-white/20 text-white/50 border border-white/20 rounded-full px-8 py-4 text-lg font-medium cursor-not-allowed">
-              {t.hero.btnPrimary}
-            </span>
-          )}
+          <Link href={t.links.mentee} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black border border-white rounded-full px-8 py-4 text-lg font-medium hover:bg-transparent hover:text-white transition-all shadow-sm hover:-translate-y-1">
+            {t.hero.btnPrimary}
+          </Link>
           <Link href="#faq" className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-lg font-medium text-white hover:bg-white hover:text-black transition-all">
             {t.hero.btnSecondary}
           </Link>
         </motion.div>
+        </div>
       </div>
     </section>
   );
