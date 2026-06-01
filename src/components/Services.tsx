@@ -12,7 +12,7 @@ export default function Services() {
   }));
 
   return (
-    <section className="bg-momento-deep text-white min-h-screen h-screen flex flex-col justify-start px-[5vw] pt-20 pb-8" id="servicos">
+    <section className="bg-momento-deep text-white min-h-dvh lg:h-screen flex flex-col justify-start px-[5vw] pt-24 pb-12 lg:pt-20 lg:pb-8" id="servicos">
       <div className="max-w-[1440px] mx-auto w-full">
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[48px] lg:text-[56px] leading-none tracking-[-0.04em] mb-32"
+          className="text-center font-display font-medium text-[36px] md:text-[44px] lg:text-[56px] leading-none tracking-[-0.04em] mb-16 md:mb-24 lg:mb-32"
         >
           {t.services.title1}<br/>{t.services.title2}
         </motion.h2>
@@ -41,7 +41,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: card.delay }}
-              className="bg-white/5 backdrop-blur-sm rounded-[32px] p-8 lg:p-10 flex flex-col gap-5 border border-white/10 hover:bg-white/10 transition-colors"
+              className="bg-white/5 backdrop-blur-sm rounded-[32px] p-6 md:p-8 lg:p-10 flex flex-col gap-5 border border-white/10 hover:bg-white/10 transition-colors"
             >
               <div className="w-14 h-14 rounded-2xl bg-momento-accent/20 flex items-center justify-center text-momento-accent mb-2">
                 {idx === 0 && (
@@ -60,7 +60,7 @@ export default function Services() {
                   </svg>
                 )}
               </div>
-              <h3 className="font-display text-[28px] lg:text-[32px] font-medium leading-[1.1] tracking-[-0.02em]">{card.title}</h3>
+              <h3 className="font-display text-[22px] md:text-[26px] lg:text-[32px] font-medium leading-[1.1] tracking-[-0.02em]">{card.title}</h3>
               <p className="text-base leading-relaxed text-white/80">
                 {card.desc}
               </p>

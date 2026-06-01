@@ -32,7 +32,7 @@ export default function About() {
   const { t } = useLanguage();
 
   return (
-    <section className="bg-white py-[128px] px-[5vw]" id="sobre">
+    <section className="bg-white py-20 md:py-28 lg:py-[128px] px-[5vw]" id="sobre">
       <div className="max-w-[1440px] mx-auto flex flex-col gap-16">
         
         {/* Bloco 1: Texto + Imagem */}
@@ -48,7 +48,7 @@ export default function About() {
             <span className="text-momento-accent font-bold mb-6 text-base uppercase tracking-wider">
               {t.about.badge}
             </span>
-            <h2 className="font-display font-medium text-[40px] lg:text-[48px] leading-[1.1] tracking-[-0.03em] text-black mb-6">
+            <h2 className="font-display font-medium text-[32px] md:text-[40px] lg:text-[48px] leading-[1.1] tracking-[-0.03em] text-black mb-6">
               {t.about.title1}
             </h2>
             <div className="flex flex-col gap-6 text-[17px] text-neutral-800 leading-relaxed max-w-[95%]">
@@ -85,9 +85,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="bg-momento-lightest rounded-[32px] p-10 flex flex-col justify-center items-start md:items-center text-left md:text-center"
+            className="bg-momento-lightest rounded-[32px] p-6 md:p-8 lg:p-10 flex flex-col justify-center items-start md:items-center text-left md:text-center"
           >
-            <CountUp value={t.about.stat1Number} className="font-display text-[56px] lg:text-[64px] font-medium leading-none tracking-[-0.04em] text-momento-dark mb-4 block" />
+            <CountUp value={t.about.stat1Number} className="font-display text-[44px] md:text-[56px] lg:text-[64px] font-medium leading-none tracking-[-0.04em] text-momento-dark mb-4 block" />
             <p className="text-neutral-600 text-lg">{t.about.stat1Label}</p>
           </motion.article>
 
@@ -97,9 +97,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="bg-momento-lightest rounded-[32px] p-10 flex flex-col justify-center items-start md:items-center text-left md:text-center"
+            className="bg-momento-lightest rounded-[32px] p-6 md:p-8 lg:p-10 flex flex-col justify-center items-start md:items-center text-left md:text-center"
           >
-            <CountUp value={t.about.stat2Number} className="font-display text-[56px] lg:text-[64px] font-medium leading-none tracking-[-0.04em] text-momento-dark mb-4 block" />
+            <CountUp value={t.about.stat2Number} className="font-display text-[44px] md:text-[56px] lg:text-[64px] font-medium leading-none tracking-[-0.04em] text-momento-dark mb-4 block" />
             <p className="text-neutral-600 text-lg">{t.about.stat2Label}</p>
           </motion.article>
 
@@ -109,9 +109,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="bg-momento-lightest rounded-[32px] p-10 flex flex-col justify-center items-start md:items-center text-left md:text-center"
+            className="bg-momento-lightest rounded-[32px] p-6 md:p-8 lg:p-10 flex flex-col justify-center items-start md:items-center text-left md:text-center"
           >
-            <CountUp value={t.about.stat3Number} className="font-display text-[56px] lg:text-[64px] font-medium leading-none tracking-[-0.04em] text-momento-dark mb-4 block" />
+            <CountUp value={t.about.stat3Number} className="font-display text-[44px] md:text-[56px] lg:text-[64px] font-medium leading-none tracking-[-0.04em] text-momento-dark mb-4 block" />
             <p className="text-neutral-600 text-lg">{t.about.stat3Label}</p>
           </motion.article>
 

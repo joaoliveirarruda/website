@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen text-white bg-cover bg-center flex flex-col" style={{ backgroundImage: "url('/assets/hero-fig.png')" }}>
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
-      <div className="relative px-[5vw] pt-44 pb-24 flex-1 flex flex-col w-full">
+      <div className="relative px-[5vw] pt-28 pb-16 md:pt-36 md:pb-20 lg:pt-44 lg:pb-24 flex-1 flex flex-col w-full">
         <div className="max-w-[1440px] mx-auto w-full flex-1 flex flex-col justify-end">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -33,12 +33,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="mt-10 flex gap-4"
+          className="mt-10 flex flex-wrap gap-3 md:gap-4"
         >
-          <Link href={t.links.mentee} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black border border-white rounded-full px-8 py-4 text-lg font-medium hover:bg-transparent hover:text-white transition-all shadow-sm hover:-translate-y-1">
+          <Link href={t.links.mentee} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black border border-white rounded-full px-6 py-3 text-base md:px-8 md:py-4 md:text-lg font-medium hover:bg-transparent hover:text-white transition-all shadow-sm hover:-translate-y-1">
             {t.hero.btnPrimary}
           </Link>
-          <Link href="#faq" className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-lg font-medium text-white hover:bg-white hover:text-black transition-all">
+          <Link href="#faq" className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-base md:px-8 md:py-4 md:text-lg font-medium text-white hover:bg-white hover:text-black transition-all">
             {t.hero.btnSecondary}
           </Link>
         </motion.div>

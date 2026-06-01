@@ -54,7 +54,7 @@ export default function CTA() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="p-10 md:p-[80px] flex flex-col justify-center"
+              className="p-6 md:p-10 lg:p-[80px] flex flex-col justify-center"
             >
               <div className="inline-block self-start px-4 py-2 bg-white/10 rounded-full mb-4">
                 <span className="text-white font-bold text-sm">{event.date}</span>
