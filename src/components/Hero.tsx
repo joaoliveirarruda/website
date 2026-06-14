@@ -1,49 +1,146 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+
+// Manchas da aurora (nas bordas, atrás do título). Cores da paleta roxa;
+// durações longas e diferentes = movimento orgânico, nunca sincronizado.
+const BLOBS = [
+  {
+    className: "left-[-6%] top-[6%] h-[46vh] w-[46vh] bg-momento-accent/60 blur-[100px]",
+    animate: {
+      x: [0, 60, -20, 0],
+      y: [0, 150, 60, 0],
+      scale: [1, 1.18, 1.08, 1],
+      opacity: [0.55, 0.85, 0.6, 0.55],
+    },
+    duration: 17,
+    delay: 0.8,
+  },
+  {
+    className: "right-[-6%] bottom-[6%] h-[48vh] w-[48vh] bg-momento-brand/55 blur-[100px]",
+    animate: {
+      x: [0, -60, 20, 0],
+      y: [0, -150, -60, 0],
+      scale: [1, 1.12, 1.22, 1],
+      opacity: [0.5, 0.8, 0.55, 0.5],
+    },
+    duration: 19,
+    delay: 0.4,
+  },
+  {
+    className: "left-[-4%] bottom-[8%] h-[40vh] w-[40vh] bg-momento-light/80 blur-[110px]",
+    animate: {
+      x: [0, 50, -25, 0],
+      y: [0, -130, 40, 0],
+      scale: [1, 1.14, 1.06, 1],
+      opacity: [0.6, 0.88, 0.7, 0.6],
+    },
+    duration: 14,
+    delay: 0,
+  },
+  {
+    className: "right-[2%] top-[12%] h-[34vh] w-[34vh] bg-momento-mid/40 blur-[90px]",
+    animate: {
+      x: [0, -45, 30, 0],
+      y: [0, 140, -50, 0],
+      scale: [1, 1.25, 1.1, 1],
+      opacity: [0.4, 0.65, 0.45, 0.4],
+    },
+    duration: 22,
+    delay: 1.6,
+  },
+];
 
 export default function Hero() {
   const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Parallax na saída da hero: a aurora e o título "ficam para trás"
+  // (mais lentos) enquanto a próxima seção sobe por cima ao rolar.
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const auroraY = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const auroraOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, 70]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
+
+  // "encontre seu" + "mentor" -> ["encontre", "seu", "mentor"] (one word per line)
+  const leadWords = t.hero.title1.split(" ");
+
   return (
-    <section className="relative min-h-screen text-white bg-cover bg-center flex flex-col" style={{ backgroundImage: "url('/assets/hero-fig.png')" }}>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
-      <div className="relative px-[5vw] pt-28 pb-16 md:pt-36 md:pb-20 lg:pt-44 lg:pb-24 flex-1 flex flex-col w-full">
-        <div className="max-w-[1440px] mx-auto w-full flex-1 flex flex-col justify-end">
+    <section
+      ref={sectionRef}
+      className="relative min-h-dvh text-momento-dark flex items-center justify-center overflow-hidden"
+    >
+      {/* Aurora roxa que respira atrás do título (decorativa) + parallax na saída */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={reduceMotion ? undefined : { y: auroraY, opacity: auroraOpacity }}
+      >
+        {BLOBS.map((blob, i) => (
+          <motion.div
+            key={i}
+            className={`absolute rounded-full ${blob.className}`}
+            animate={reduceMotion ? undefined : blob.animate}
+            transition={
+              reduceMotion
+                ? undefined
+                : {
+                    duration: blob.duration,
+                    delay: blob.delay,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut",
+                  }
+            }
+          />
+        ))}
+      </motion.div>
+
+      <motion.div
+        className="relative"
+        style={reduceMotion ? undefined : { y: titleY, opacity: titleOpacity }}
+      >
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-display font-medium text-[clamp(56px,11vw,152px)] leading-[0.85] tracking-[-0.045em] max-w-[1100px] border-b border-white/40 pb-6 text-white"
+          className="px-[5vw] text-center font-display font-medium lowercase text-[clamp(64px,13vw,180px)] leading-[0.82] tracking-[-0.045em] text-momento-brand"
         >
-          {t.hero.title1}<br/>{t.hero.title2}
+          {leadWords.map((word) => (
+            <span key={word} className="block">
+              {word}
+            </span>
+          ))}
+          <span className="block">{t.hero.title2}</span>
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="mt-8 text-lg md:text-xl max-w-2xl text-white/90 leading-relaxed"
-        >
-          {t.hero.description}
-        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="mt-10 flex flex-wrap gap-3 md:gap-4"
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link href={t.links.mentee} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black border border-white rounded-full px-6 py-3 text-base md:px-8 md:py-4 md:text-lg font-medium hover:bg-transparent hover:text-white transition-all shadow-sm hover:-translate-y-1">
+          <a
+            href="#time"
+            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-medium bg-momento-brand text-white border border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand"
+          >
             {t.hero.btnPrimary}
-          </Link>
-          <Link href="#faq" className="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-base md:px-8 md:py-4 md:text-lg font-medium text-white hover:bg-white hover:text-black transition-all">
+          </a>
+          <a
+            href="#sobre"
+            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-medium text-momento-dark border border-momento-dark/20 transition-all duration-300 hover:border-momento-brand hover:text-momento-brand"
+          >
             {t.hero.btnSecondary}
-          </Link>
+          </a>
         </motion.div>
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -25,7 +25,7 @@ export default function Testimonial() {
   const prev = () => setActive((prev) => (prev - 1 + items.length) % items.length);
 
   return (
-    <section className="bg-gradient-to-b from-momento-off-white to-momento-cream min-h-dvh lg:h-screen flex flex-col justify-start px-[5vw] pt-24 pb-12 lg:pt-20 lg:pb-8" id="depoimentos">
+    <section className="flex flex-col justify-start px-[5vw] pt-24 pb-12 lg:pt-28 lg:pb-16" id="depoimentos">
       <div className="max-w-[1024px] mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export default function Testimonial() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[36px] md:text-[44px] lg:text-[56px] leading-none tracking-[-0.04em] mb-12 md:mb-16"
+          className="text-center font-display font-medium text-[42px] md:text-[60px] lg:text-[80px] leading-[0.95] tracking-[-0.04em] mb-12 md:mb-16"
         >
           {t.testimonials.title1}<br/>{t.testimonials.title2}
         </motion.h2>
