@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform, animate } from "motion/react";
 import { useEffect, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";

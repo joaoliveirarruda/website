@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useLanguage } from "@/context/LanguageContext";
 
 // Manchas da aurora (nas bordas, atrás do título). Cores da paleta roxa;
