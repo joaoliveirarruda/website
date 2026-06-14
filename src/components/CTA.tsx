@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const AUTO_INTERVAL = 6000;
@@ -30,12 +30,12 @@ export default function CTA() {
   const event = events[active];
 
   return (
-    <section className="bg-white px-[5vw] pt-20 pb-24">
+    <section className="px-[5vw] pt-20 pb-24">
       <div className="max-w-[1440px] mx-auto">
         <p className="text-base text-neutral-500 font-medium tracking-wide uppercase mb-6">
           {t.events.badge}
         </p>
-        <h2 className="font-display font-medium text-[clamp(40px,6vw,64px)] leading-none tracking-[-0.04em] mb-6">
+        <h2 className="font-display font-medium text-[clamp(44px,7vw,84px)] leading-[0.95] tracking-[-0.04em] mb-6">
           {t.events.title}
         </h2>
         <p className="text-xl text-neutral-500 max-w-lg mb-16">

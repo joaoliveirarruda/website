@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function FAQ() {
@@ -13,7 +13,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="bg-momento-lightest px-[5vw] pt-20 pb-24" id="faq">
+    <section className="px-[5vw] pt-20 pb-24" id="faq">
       <div className="max-w-[1024px] mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export default function FAQ() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[36px] md:text-[44px] lg:text-[56px] leading-none tracking-[-0.04em] mb-12 md:mb-16"
+          className="text-center font-display font-medium text-[42px] md:text-[60px] lg:text-[80px] leading-[0.95] tracking-[-0.04em] mb-12 md:mb-16"
         >
           {t.faq.title}
         </motion.h2>

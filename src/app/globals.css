@@ -20,9 +20,10 @@
   --font-display: "ES Allianz", Arial, sans-serif;
   --font-body: "LouisGeorge", Arial, sans-serif;
 
-  --color-momento-deep: #1e0a28;
-  --color-momento-dark: #371140;
-  --color-momento-mid: #5c2d80;
+  --color-momento-deep: #241240;
+  --color-momento-dark: #3b2065;
+  --color-momento-mid: #693dae;
+  --color-momento-brand: #855cc4;
   --color-momento-accent: #a87fd4;
   --color-momento-light: #E4D6FF;
   --color-momento-lightest: #F6F5F5;
@@ -48,7 +49,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: white;
+  background-color: var(--color-momento-off-white);
   color: black;
   -webkit-font-smoothing: antialiased;
 }
+

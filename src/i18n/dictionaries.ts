@@ -5,16 +5,17 @@ export const pt = {
     about: "Sobre",
     services: "O que fazemos",
     testimonials: "Depoimentos",
+    team: "Time",
     faq: "FAQ",
     cta: "Participar",
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
   },
   hero: {
-    title1: "Mentoria real,",
-    title2: "Resultados reais.",
+    title1: "find your",
+    title2: "mentor",
     description: "Conectamos universitários a profissionais do mercado para mentorias 1-a-1 que transformam carreiras.",
-    btnPrimary: "Descubra o Momento",
+    btnPrimary: "Conheça o time",
     btnSecondary: "Como funciona",
   },
   about: {
@@ -82,6 +83,85 @@ export const pt = {
         role: "Tech Fellow Estudar '25",
         image: "/assets/romulo.jpeg",
         quote: "Estar entre pessoas boas é estar em um ambiente de crescimento. Sempre gratificante ter contato com ex-alunos experientes e que compartilham do sentimento de comunidade, são valiosas opiniões, insights e vivências as quais podem ajudar em muitos dos dilemas que vivemos na graduação.",
+      },
+    ],
+  },
+  team: {
+    badge: "Nosso Time",
+    title1: "Quem faz o Momento",
+    title2: "acontecer",
+    members: [
+      {
+        name: "Nicole Costa",
+        role: "Líder",
+        photo: "/assets/nicolecosta.jpg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/niicolecosta/" },
+          { type: "github", url: "https://github.com/nicolecostt" },
+        ],
+      },
+      {
+        name: "Emyle Lucena",
+        role: "Organizador",
+        photo: "/assets/emylelucena.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/emylesantos/" },
+          { type: "github", url: "https://github.com/Emysntts" },
+        ],
+      },
+      {
+        name: "Maria Luiza",
+        role: "Organizador",
+        photo: "/assets/uchoa.jpg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/maria-lu%C3%ADza-uchoa-cavalcanti-4a3812374/" },
+          { type: "github", url: "https://github.com/malu-zinha" },
+        ],
+      },
+      {
+        name: "Pedro Kruta",
+        role: "Organizador",
+        photo: "/assets/pedrokruta.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/pkruta/" },
+          { type: "github", url: "https://github.com/PKrutaa" },
+        ],
+      },
+      {
+        name: "Clara Dantas",
+        role: "Organizador",
+        photo: "/assets/clara.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/claradantast/" },
+          { type: "github", url: "https://github.com/claratdantass" },
+        ],
+      },
+      {
+        name: "Matheus Marinho",
+        role: "Organizador",
+        photo: "/assets/mateusmarinho.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/matheusmrno/" },
+          { type: "github", url: "https://github.com/m9tzin" },
+        ],
+      },
+      {
+        name: "Luciana Honório",
+        role: "Organizador",
+        photo: "/assets/luciana.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/luciana-nascimento/" },
+          { type: "github", url: "https://github.com/lucianahonorio" },
+        ],
+      },
+      {
+        name: "João Arruda",
+        role: "Organizador",
+        photo: "/assets/joaoarruda.jpg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/joao-arrudaa/" },
+          { type: "github", url: "https://github.com/joaoliveirarruda" },
+        ],
       },
     ],
   },
@@ -175,16 +255,17 @@ export const en = {
     about: "About",
     services: "What we do",
     testimonials: "Testimonials",
+    team: "Team",
     faq: "FAQ",
     cta: "Join Us",
     openMenu: "Open menu",
     closeMenu: "Close menu",
   },
   hero: {
-    title1: "Real mentorship,",
-    title2: "Real results.",
+    title1: "find your",
+    title2: "mentor",
     description: "We connect students to industry professionals for 1-on-1 mentorships that transform careers.",
-    btnPrimary: "Discover Momento",
+    btnPrimary: "Meet the team",
     btnSecondary: "How it works",
   },
   about: {
@@ -252,6 +333,85 @@ export const en = {
         role: "Tech Fellow Estudar '25",
         image: "/assets/romulo.jpeg",
         quote: "Being among good people means being in a growth environment. It's always rewarding to have contact with experienced alumni who share a sense of community — their valuable opinions, insights, and experiences can help with many of the dilemmas we face during college.",
+      },
+    ],
+  },
+  team: {
+    badge: "Our Team",
+    title1: "The people behind",
+    title2: "Momento",
+    members: [
+      {
+        name: "Nicole Costa",
+        role: "Leader",
+        photo: "/assets/nicolecosta.jpg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/niicolecosta/" },
+          { type: "github", url: "https://github.com/nicolecostt" },
+        ],
+      },
+      {
+        name: "Emyle Lucena",
+        role: "Organizer",
+        photo: "/assets/emylelucena.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/emylesantos/" },
+          { type: "github", url: "https://github.com/Emysntts" },
+        ],
+      },
+      {
+        name: "Maria Luiza",
+        role: "Organizer",
+        photo: "/assets/uchoa.jpg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/maria-lu%C3%ADza-uchoa-cavalcanti-4a3812374/" },
+          { type: "github", url: "https://github.com/malu-zinha" },
+        ],
+      },
+      {
+        name: "Pedro Kruta",
+        role: "Organizer",
+        photo: "/assets/pedrokruta.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/pkruta/" },
+          { type: "github", url: "https://github.com/PKrutaa" },
+        ],
+      },
+      {
+        name: "Clara Dantas",
+        role: "Organizer",
+        photo: "/assets/clara.png",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/claradantast/" },
+          { type: "github", url: "https://github.com/claratdantass" },
+        ],
+      },
+      {
+        name: "Matheus Marinho",
+        role: "Organizer",
+        photo: "/assets/mateusmarinho.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/matheusmrno/" },
+          { type: "github", url: "https://github.com/m9tzin" },
+        ],
+      },
+      {
+        name: "Luciana Honório",
+        role: "Organizer",
+        photo: "/assets/luciana.jpeg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/luciana-nascimento/" },
+          { type: "github", url: "https://github.com/lucianahonorio" },
+        ],
+      },
+      {
+        name: "João Arruda",
+        role: "Organizer",
+        photo: "/assets/joaoarruda.jpg",
+        socials: [
+          { type: "linkedin", url: "https://www.linkedin.com/in/joao-arrudaa/" },
+          { type: "github", url: "https://github.com/joaoliveirarruda" },
+        ],
       },
     ],
   },

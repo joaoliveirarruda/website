@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
@@ -41,6 +41,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "#sobre", label: t.navbar.about },
     { href: "#depoimentos", label: t.navbar.testimonials },
+    { href: "#time", label: t.navbar.team },
     { href: "#servicos", label: t.navbar.services },
     { href: "#faq", label: t.navbar.faq },
   ];
@@ -70,7 +71,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`transition-colors duration-300 hover:text-momento-accent ${isScrolled ? "text-black" : "text-white"}`}
+                className="text-momento-dark transition-colors duration-300 hover:text-momento-accent"
               >
                 {link.label}
               </Link>
@@ -78,8 +79,8 @@ export default function Navbar() {
           </nav>
 
           <div className="justify-self-end flex items-center gap-6">
-            <LangToggle isScrolled={isScrolled} language={language} setLanguage={setLanguage} />
-            <CtaButton isScrolled={isScrolled} href={t.links.mentee} label={t.navbar.cta} />
+            <LangToggle language={language} setLanguage={setLanguage} />
+            <CtaButton href={t.links.mentee} label={t.navbar.cta} />
           </div>
         </div>
 
@@ -93,9 +94,7 @@ export default function Navbar() {
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             onClick={() => setIsMenuOpen((v) => !v)}
-            className={`relative h-10 w-10 flex items-center justify-center rounded-full transition-colors duration-300 ${
-              isScrolled || isMenuOpen ? "text-black" : "text-white"
-            }`}
+            className="relative h-10 w-10 flex items-center justify-center rounded-full text-momento-dark transition-colors duration-300"
           >
             <span className="sr-only">{isMenuOpen ? t.navbar.closeMenu : t.navbar.openMenu}</span>
             <motion.span
@@ -155,7 +154,6 @@ export default function Navbar() {
 
                 <div className="flex justify-center pt-6 pb-4">
                   <LangToggle
-                    isScrolled
                     language={language}
                     setLanguage={(l) => {
                       setLanguage(l);
@@ -165,7 +163,6 @@ export default function Navbar() {
                 </div>
 
                 <CtaButton
-                  isScrolled
                   href={t.links.mentee}
                   label={t.navbar.cta}
                   fullWidth
@@ -181,20 +178,14 @@ export default function Navbar() {
 }
 
 function LangToggle({
-  isScrolled,
   language,
   setLanguage,
 }: {
-  isScrolled: boolean;
   language: "pt" | "en";
   setLanguage: (l: "pt" | "en") => void;
 }) {
   return (
-    <div
-      className={`flex items-center rounded-full p-1 border transition-colors duration-300 ${
-        isScrolled ? "border-momento-dark/20" : "border-white/20"
-      }`}
-    >
+    <div className="flex items-center rounded-full p-1 border border-momento-dark/20 transition-colors duration-300">
       {(["pt", "en"] as const).map((lang) => {
         const active = language === lang;
         return (
@@ -202,19 +193,13 @@ function LangToggle({
             key={lang}
             onClick={() => setLanguage(lang)}
             className={`relative px-3 py-1 text-xs font-medium rounded-full transition-colors duration-300 ${
-              active
-                ? isScrolled
-                  ? "text-white"
-                  : "text-black"
-                : isScrolled
-                  ? "text-momento-dark hover:text-momento-accent"
-                  : "text-white hover:text-white/80"
+              active ? "text-white" : "text-momento-dark hover:text-momento-accent"
             }`}
           >
             {active && (
               <motion.div
                 layoutId="active-lang"
-                className={`absolute inset-0 rounded-full ${isScrolled ? "bg-momento-dark" : "bg-white"}`}
+                className="absolute inset-0 rounded-full bg-momento-brand"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             )}
@@ -227,13 +212,11 @@ function LangToggle({
 }
 
 function CtaButton({
-  isScrolled,
   href,
   label,
   fullWidth = false,
   onClick,
 }: {
-  isScrolled: boolean;
   href: string;
   label: string;
   fullWidth?: boolean;
@@ -249,11 +232,7 @@ function CtaButton({
       target="_blank"
       rel="noopener noreferrer"
       onClick={onClick}
-      className={`${base} transition-all duration-300 ${
-        isScrolled
-          ? "bg-momento-dark text-white border-momento-dark hover:bg-transparent hover:text-momento-dark"
-          : "bg-white text-black border-white hover:bg-transparent hover:text-white"
-      }`}
+      className={`${base} bg-momento-brand text-white border-momento-brand transition-all duration-300 hover:bg-transparent hover:text-momento-brand`}
     >
       {label}
     </Link>
