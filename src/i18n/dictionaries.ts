@@ -12,11 +12,17 @@ export const pt = {
     closeMenu: "Fechar menu",
   },
   hero: {
-    title1: "find your",
+    title1: "encontre o seu",
     title2: "mentor",
-    description: "Conectamos universitários a profissionais do mercado para mentorias 1-a-1 que transformam carreiras.",
+    description: "Conectando estudantes universitários ao mercado de trabalho através de mentoria e comunidade.",
     btnPrimary: "Conheça o time",
     btnSecondary: "Como funciona",
+  },
+  apply: {
+    title: "As inscrições estão abertas",
+    description: "Garanta sua vaga no próximo ciclo de mentorias do Momento. Preencha o formulário e dê o primeiro passo na sua jornada.",
+    btn: "Quero me inscrever",
+    note: "Vagas limitadas · Leva apenas alguns minutos",
   },
   about: {
     badge: "Comunidade Momento",
@@ -264,9 +270,15 @@ export const en = {
   hero: {
     title1: "find your",
     title2: "mentor",
-    description: "We connect students to industry professionals for 1-on-1 mentorships that transform careers.",
+    description: "Connecting university students to the job market through mentorship and community.",
     btnPrimary: "Meet the team",
     btnSecondary: "How it works",
+  },
+  apply: {
+    title: "Applications are now open",
+    description: "Secure your spot in Momento's next mentorship cycle. Fill out the form and take the first step in your journey.",
+    btn: "Apply now",
+    note: "Limited spots · Takes a few minutes",
   },
   about: {
     badge: "Momento Community",
@@ -470,6 +482,8 @@ export const en = {
     mentee: "https://lnkd.in/dnp9K_2y",
     mentor: "https://lnkd.in/dXD-vnuu",
     email: "mailto:contato@momento.sh",
+    // TODO: substituir pelo link real do formulário de inscrição
+    form: "https://forms.gle/SEU-FORMULARIO-AQUI",
   },
   events: {
     badge: "WHAT WE'VE DONE",

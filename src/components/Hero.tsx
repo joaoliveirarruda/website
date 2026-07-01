@@ -69,9 +69,6 @@ export default function Hero() {
   const titleY = useTransform(scrollYProgress, [0, 1], [0, 70]);
   const titleOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.15]);
 
-  // "encontre seu" + "mentor" -> ["encontre", "seu", "mentor"] (one word per line)
-  const leadWords = t.hero.title1.split(" ");
-
   return (
     <section
       ref={sectionRef}
@@ -113,18 +110,23 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="px-[5vw] text-center font-display font-medium lowercase text-[clamp(64px,13vw,180px)] leading-[0.82] tracking-[-0.045em] text-momento-brand"
         >
-          {leadWords.map((word) => (
-            <span key={word} className="block">
-              {word}
-            </span>
-          ))}
+          <span className="block">{t.hero.title1}</span>
           <span className="block">{t.hero.title2}</span>
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="mx-auto mt-8 max-w-2xl px-[5vw] text-center font-body text-lg md:text-xl font-light leading-relaxed text-balance text-momento-dark/70"
+        >
+          {t.hero.description}
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a

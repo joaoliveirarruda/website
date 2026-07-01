@@ -44,7 +44,7 @@ export default function Team() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-center font-display font-medium text-[42px] md:text-[60px] lg:text-[80px] leading-[0.95] tracking-[-0.04em] mb-16 md:mb-20"
+          className="text-center font-display font-medium text-[42px] md:text-[60px] lg:text-[80px] leading-[0.95] tracking-[-0.04em] mb-12 md:mb-16"
         >
           {t.team.title1}<br />{t.team.title2}
         </motion.h2>
@@ -59,7 +59,7 @@ export default function Team() {
               transition={{ duration: 0.5, delay: 0.05 * (idx % 5) }}
               className="group flex flex-col"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-momento-light">
+              <div className="relative aspect-square overflow-hidden rounded-[20px] bg-momento-light">
                 {!failed[idx] ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -75,16 +75,16 @@ export default function Team() {
                 )}
               </div>
 
-              <div className="pt-4">
-                <p className="font-display text-[20px] md:text-[22px] font-medium leading-tight text-black">
+              <div className="pt-3">
+                <p className="font-display text-[18px] md:text-[20px] font-medium leading-tight text-black">
                   {member.name}
                 </p>
-                <p className="mt-1 text-momento-brand text-sm md:text-base">
+                <p className="mt-0.5 text-momento-brand text-sm">
                   {member.role}
                 </p>
 
                 {member.socials.length > 0 && (
-                  <div className="mt-4 flex items-center gap-2.5">
+                  <div className="mt-3 flex items-center gap-2">
                     {member.socials.map((social) => {
                       const isLinkedin = social.type === "linkedin";
                       return (
@@ -94,7 +94,7 @@ export default function Team() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`${member.name} no ${social.type}`}
-                          className={`w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300 hover:-translate-y-0.5 ${
+                          className={`w-9 h-9 flex items-center justify-center rounded-full transition-all duration-300 hover:-translate-y-0.5 ${
                             isLinkedin
                               ? "bg-momento-brand text-white hover:bg-momento-mid"
                               : "bg-neutral-300 text-neutral-800 hover:bg-neutral-400"
